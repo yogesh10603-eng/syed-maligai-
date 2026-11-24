@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syed Maligai | Grocery Store</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#fff8f0;color:#302323}
+header{background:#8f101b;color:white;padding:20px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+header h1{font-size:27px}
+header span{color:#ffd166}
+nav a{color:white;text-decoration:none;margin:8px;font-weight:bold}
+nav a:hover{color:#ffd166}
+.hero{padding:85px 8%;background:linear-gradient(120deg,#640811,#a51020,#e32636);color:white}
+.hero h2{font-size:clamp(35px,6vw,58px);max-width:650px;margin-bottom:18px}
+.hero p{font-size:18px;line-height:1.7;margin-bottom:25px}
+.btn{display:inline-block;background:#ffd166;color:#64101a;padding:14px 25px;border-radius:30px;text-decoration:none;font-weight:bold}
+section{padding:55px 7%}
+h2.title{color:#9d1420;text-align:center;margin-bottom:30px;font-size:32px}
+.features,.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px}
+.card{background:white;padding:24px;border-radius:17px;text-align:center;border:1px solid #f0d6d1;box-shadow:0 5px 15px #6d111110}
+.card h3{color:#a51020;margin:12px 0}
+.emoji{font-size:42px}
+.offer{background:#a51020;color:white;text-align:center;padding:40px 15px;border-radius:20px}
+.offer h2{color:#ffd166;margin-bottom:12px}
+.product{background:white;border-radius:15px;padding:20px;text-align:center;border:1px solid #f0d6d1}
+.product .emoji{font-size:40px}
+.product h3{color:#8f101b;margin:12px}
+.product p{margin:8px}
+.product button{background:#a51020;color:white;border:0;border-radius:20px;padding:11px 18px;cursor:pointer}
+.product button:hover{background:#650811}
+#cart{background:#fff0e9;border-radius:18px;padding:25px;max-width:600px;margin:auto}
+#cart h3{color:#9d1420;margin-bottom:15px}
+#cartItems p{padding:8px;border-bottom:1px solid #edd2cb}
+.contact{background:#710b14;color:white;text-align:center}
+.contact h2{color:#ffd166;margin-bottom:20px}
+.contact p{margin:12px}
+.contact a{color:#ffd166}
+footer{background:#39070b;color:white;text-align:center;padding:25px}
+footer span{color:#ffd166}
+@media(max-width:600px){header{justify-content:center;text-align:center}.hero{padding:55px 7%}nav{line-height:2}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🛒 SYED <span>MALIGAI</span></h1>
+<nav>
+<a href="#home">Home</a>
+<a href="#categories">Categories</a>
+<a href="#products">Products</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<div class="hero" id="home">
+<h2>Everything You Need, All in One Place!</h2>
+<p>Welcome to Syed Maligai. Your neighbourhood grocery store for daily essentials, quality products and friendly service.</p>
+<a class="btn" href="#products">Explore Products →</a>
+</div>
+
+<section>
+<h2 class="title">Why Choose Syed Maligai?</h2>
+<div class="features">
+<div class="card"><div class="emoji">⭐</div><h3>Quality Products</h3><p>Carefully selected daily essentials.</p></div>
+<div class="card"><div class="emoji">💰</div><h3>Fair Prices</h3><p>Value for your everyday shopping.</p></div>
+<div class="card"><div class="emoji">🏪</div><h3>Local Service</h3><p>Your trusted neighbourhood store.</p></div>
+<div class="card"><div class="emoji">📱</div><h3>Easy Ordering</h3><p>Send your grocery list through WhatsApp.</p></div>
+</div>
+</section>
+
+<section id="categories">
+<h2 class="title">Our Grocery Categories</h2>
+<div class="features">
+<div class="card"><div class="emoji">🌾</div><h3>Rice & Grains</h3><p>Rice, dhal and cereals</p></div>
+<div class="card"><div class="emoji">🛢️</div><h3>Oil & Masala</h3><p>Cooking oils and spices</p></div>
+<div class="card"><div class="emoji">🥛</div><h3>Dairy Products</h3><p>Milk and daily essentials</p></div>
+<div class="card"><div class="emoji">🍪</div><h3>Snacks</h3><p>Biscuits and snacks</p></div>
+<div class="card"><div class="emoji">🧼</div><h3>Home Care</h3><p>Cleaning essentials</p></div>
+<div class="card"><div class="emoji">🧴</div><h3>Personal Care</h3><p>Everyday personal products</p></div>
+</div>
+</section>
+
+<section>
+<div class="offer">
+<h2>🎉 Your Daily Needs, One Happy Store!</h2>
+<p>Visit Syed Maligai for your everyday grocery shopping.</p>
+</div>
+</section>
+
+<section id="products">
+<h2 class="title">Popular Products</h2>
+<div class="products" id="productList"></div>
+</section>
+
+<section>
+<h2 class="title">Your Shopping Cart 🛒</h2>
+<div id="cart">
+<h3>Selected Items</h3>
+<div id="cartItems"><p>Your cart is empty.</p></div>
+<h3 id="total">Total: ₹0</h3>
+<button class="btn" onclick="orderWhatsApp()">Order on WhatsApp</button>
+</div>
+</section>
+
+<section>
+<h2 class="title">About Our Store</h2>
+<div class="card">
+<h3>Welcome to Syed Maligai</h3>
+<p>We are happy to serve our neighbourhood with everyday grocery essentials. Thank you for choosing our local store!</p>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<h2>Contact Syed Maligai</h2>
+<p>📍 Syed Maligai, Near PW Office, Meenakshiburam, Karaikudi</p>
+<p>📞 +91 94869 20339</p>
+<p>🕒 Visit us for your daily grocery needs!</p>
+<a class="btn" href="https://wa.me/919486920339">Chat on WhatsApp</a>
+</section>
+
+<footer>
+<p>© 2026 <span>Syed Maligai</span>. All Rights Reserved.</p>
+<p>Your Neighbourhood Grocery Store ❤️</p>
+</footer>
+
+<script>
+const products=[
+["Rice","🌾",65],["Toor Dal","🫘",120],
+["Cooking Oil","🛢️",150],["Sugar","🍬",45],
+["Wheat Flour","🌾",50],["Salt","🧂",25],
+["Tea Powder","🍵",110],["Coffee Powder","☕",140],
+["Biscuits","🍪",30],["Noodles","🍜",15],
+["Milk","🥛",30],["Ghee","🧈",180],
+["Chilli Powder","🌶️",45],["Turmeric Powder","🟡",35],
+["Soap","🧼",40],["Shampoo","🧴",90],
+["Detergent","🫧",75],["Toothpaste","🪥",55]
+];
+
+let cart=[];
+
+const list=document.getElementById("productList");
+products.forEach((p,i)=>{
+list.innerHTML+=`
+<div class="product">
+<div class="emoji">${p[1]}</div>
+<h3>${p[0]}</h3>
+<p>₹${p[2]} (sample price)</p>
+<button onclick="addToCart(${i})">Add to Cart +</button>
+</div>`;
+});
+
+function addToCart(i){
+let item=cart.find(x=>x.name===products[i][0]);
+if(item)item.qty++;
+else cart.push({name:products[i][0],price:products[i][2],qty:1});
+showCart();
+}
+
+function showCart(){
+let box=document.getElementById("cartItems");
+if(cart.length===0){
+box.innerHTML="<p>Your cart is empty.</p>";
+}else{
+box.innerHTML=cart.map((x,i)=>`
+<p>${x.name} × ${x.qty} = ₹${x.price*x.qty}
+<button onclick="removeItem(${i})">Remove</button></p>`).join("");
+}
+let total=cart.reduce((s,x)=>s+x.price*x.qty,0);
+document.getElementById("total").innerText="Total: ₹"+total;
+}
+
+function removeItem(i){
+cart.splice(i,1);
+showCart();
+}
+
+function orderWhatsApp(){
+if(cart.length===0){alert("Please add products first!");return;}
+let total=cart.reduce((s,x)=>s+x.price*x.qty,0);
+let message="Hello Syed Maligai! I would like to order:\n"+
+cart.map(x=>x.name+" x "+x.qty+" = ₹"+(x.price*x.qty)).join("\n")+
+"\nTotal: ₹"+total+"\nPlease confirm my order.";
+window.open("https://wa.me/919486920339?text="+encodeURIComponent(message),"_blank");
+}
+</script>
+</body>
+</html>
